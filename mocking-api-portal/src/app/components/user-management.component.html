@@ -1,0 +1,303 @@
+<div class="user-management-container">
+  <div class="header">
+    <h1>User Management System</h1>
+    <div class="header-actions">
+      <button class="btn btn-primary" (click)="openCreateForm()">Add New User</button>
+      <button class="btn btn-secondary" (click)="generateUsers()">Generate Mock Users</button>
+      <button class="btn btn-info" (click)="loadUsers()">Refresh</button>
+    </div>
+  </div>
+
+  <!-- View Mode Controls -->
+  <div class="view-controls">
+    <div class="view-mode-buttons">
+      <span class="view-label">View as:</span>
+      <button
+        class="btn btn-small"
+        [class.btn-primary]="viewMode() === 'table'"
+        [class.btn-outline]="viewMode() !== 'table'"
+        (click)="setViewMode('table')">
+        Table
+      </button>
+      <button
+        class="btn btn-small"
+        [class.btn-primary]="viewMode() === 'json'"
+        [class.btn-outline]="viewMode() !== 'json'"
+        (click)="setViewMode('json')">
+        JSON
+      </button>
+      <button
+        class="btn btn-small"
+        [class.btn-primary]="viewMode() === 'text'"
+        [class.btn-outline]="viewMode() !== 'text'"
+        (click)="setViewMode('text')">
+        Text
+      </button>
+    </div>
+
+    <!-- Page Size Control -->
+    @if (viewMode() === 'table') {
+      <div class="page-size-control">
+        <label for="pageSize">Items per page:</label>
+        <select id="pageSize" [(ngModel)]="pageSize" (ngModelChange)="onPageSizeChange($event)" class="form-control-small">
+          <option [value]="5">5</option>
+          <option [value]="10">10</option>
+          <option [value]="25">25</option>
+          <option [value]="50">50</option>
+        </select>
+      </div>
+    }
+  </div>
+
+  <!-- Search and Filter Controls -->
+  @if (viewMode() === 'table') {
+    <div class="search-filter-controls">
+      <div class="search-section">
+        <div class="search-input-group">
+          <input
+            type="text"
+            placeholder="Search users by name, email, phone, address..."
+            [value]="searchTerm()"
+            (input)="onSearchChange($event.target.value)"
+            class="search-input">
+          @if (searchTerm() || filterCountry()) {
+            <button class="search-clear-btn" (click)="clearFilters()">
+              Clear
+            </button>
+          }
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <select
+          [(ngModel)]="filterCountry"
+          (ngModelChange)="onCountryFilterChange($event)"
+          class="country-filter">
+          <option value="">All Countries</option>
+          <option *ngFor="let country of availableCountries()" [value]="country">
+            {{ country }}
+          </option>
+        </select>
+      </div>
+
+      <div class="results-info">
+        <span class="results-count">
+          {{ totalUsers() }} users found
+          @if (searchTerm() || filterCountry()) {
+            <span class="filter-applied">
+              (filtered)
+            </span>
+          }
+        </span>
+      </div>
+    </div>
+  }
+
+  <!-- Loading indicator -->
+  @if (isLoading()) {
+    <div class="loading">
+      <div class="spinner"></div>
+      <p>Loading users...</p>
+    </div>
+  }
+
+  <!-- Table View -->
+  @if (!isLoading() && viewMode() === 'table') {
+    <div class="table-view">
+      <div class="users-table-container">
+        <table class="users-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>City</th>
+              <th>Country</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users()" class="user-row">
+              <td>{{ user.id }}</td>
+              <td>{{ user.firstName }}</td>
+              <td>{{ user.lastName }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.phone }}</td>
+              <td>{{ user.city }}</td>
+              <td>{{ user.country }}</td>
+              <td class="actions">
+                <button class="btn btn-small btn-warning" (click)="openEditForm(user)">Edit</button>
+                <button class="btn btn-small btn-danger" (click)="deleteUser(user)">Delete</button>
+              </td>
+            </tr>
+            @if (users().length === 0) {
+              <tr>
+                <td colspan="8" class="no-users">No users found on this page.</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination Controls -->
+      @if (totalPages() > 1) {
+        <div class="pagination-container">
+          <div class="pagination-info">
+            Showing {{ (currentPage() - 1) * pageSize() + 1 }} to
+            {{ Math.min(currentPage() * pageSize(), totalUsers()) }} of
+            {{ totalUsers() }} users
+          </div>
+
+          <div class="pagination">
+            <button
+              class="btn btn-small btn-outline"
+              (click)="onPageChange(currentPage() - 1)"
+              [disabled]="currentPage() === 1">
+              Previous
+            </button>
+
+            <button
+              *ngFor="let page of getPaginationArray()"
+              class="btn btn-small"
+              [class.btn-primary]="page === currentPage()"
+              [class.btn-outline]="page !== currentPage()"
+              (click)="onPageChange(page)">
+              {{ page }}
+            </button>
+
+            <button
+              class="btn btn-small btn-outline"
+              (click)="onPageChange(currentPage() + 1)"
+              [disabled]="currentPage() === totalPages()">
+              Next
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+  }
+
+  <!-- JSON View -->
+  @if (!isLoading() && viewMode() === 'json') {
+    <div class="json-view">
+      <div class="view-header">
+        <h3>JSON View ({{ users().length }} users on current page)</h3>
+        <button class="btn btn-small btn-secondary" (click)="copyJsonToClipboard()">
+          Copy JSON
+        </button>
+      </div>
+      <pre class="json-content">{{ getJsonView() }}</pre>
+    </div>
+  }
+
+  <!-- Text View -->
+  @if (!isLoading() && viewMode() === 'text') {
+    <div class="text-view">
+      <div class="view-header">
+        <h3>Text View ({{ users().length }} users on current page)</h3>
+        <button class="btn btn-small btn-secondary" (click)="copyTextToClipboard()">
+          Copy Text
+        </button>
+      </div>
+      <pre class="text-content">{{ getTextView() }}</pre>
+    </div>
+  }
+
+  <!-- User form modal -->
+  @if (showForm()) {
+    <div class="modal-overlay" (click)="closeForm()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <div class="modal-header">
+          <h2>{{ isEditing() ? 'Edit User' : 'Create New User' }}</h2>
+          <button class="close-btn" (click)="closeForm()">&times;</button>
+        </div>
+
+        <form (ngSubmit)="saveUser()" class="user-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input
+                type="text"
+                id="firstName"
+                [(ngModel)]="newUser.firstName"
+                name="firstName"
+                required
+                class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input
+                type="text"
+                id="lastName"
+                [(ngModel)]="newUser.lastName"
+                name="lastName"
+                required
+                class="form-control">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input
+              type="email"
+              id="email"
+              [(ngModel)]="newUser.email"
+              name="email"
+              required
+              class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input
+              type="tel"
+              id="phone"
+              [(ngModel)]="newUser.phone"
+              name="phone"
+              class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input
+              type="text"
+              id="address"
+              [(ngModel)]="newUser.address"
+              name="address"
+              class="form-control">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="city">City</label>
+              <input
+                type="text"
+                id="city"
+                [(ngModel)]="newUser.city"
+                name="city"
+                class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="country">Country</label>
+              <input
+                type="text"
+                id="country"
+                [(ngModel)]="newUser.country"
+                name="country"
+                class="form-control">
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" (click)="closeForm()">Cancel</button>
+            <button type="submit" class="btn btn-primary">{{ isEditing() ? 'Update' : 'Create' }} User</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  }
+</div>
