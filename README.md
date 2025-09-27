@@ -273,7 +273,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Raksmey Koung**
-- GitHub: [@cozysnipppetrkamsmey](https://github.com/cozysnippetraksmey)
+- GitHub: [@cozysnipppetraksmey](https://github.com/cozysnippetraksmey)
 - Email: raksmeykoung@gmail.com
 
 ## 🙏 Acknowledgments
