@@ -1,0 +1,21 @@
+# Exclude build artifacts
+build/
+.gradle/
+gradle-wrapper.properties
+
+# Exclude IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Exclude version control
+.git/
+.gitignore
+
+# Exclude logs
+*.log
+
+# Exclude temporary files
+*.tmp
+*.temp

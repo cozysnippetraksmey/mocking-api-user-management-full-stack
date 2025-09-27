@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./simple_mocking_api
+      dockerfile: Dockerfile
+    container_name: user-management-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - user-management-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/users"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build:
+      context: ./mocking-api-portal
+      dockerfile: Dockerfile
+    container_name: user-management-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - user-management-network
+    environment:
+      - API_URL=http://backend:8080
+
+networks:
+  user-management-network:
+    driver: bridge
+
+volumes:
+  user-data:
+    driver: local

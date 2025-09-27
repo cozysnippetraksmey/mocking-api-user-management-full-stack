@@ -1,0 +1,33 @@
+# Exclude node modules and build artifacts
+node_modules/
+dist/
+.angular/
+
+# Exclude IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Exclude version control
+.git/
+.gitignore
+
+# Exclude logs and temporary files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Exclude environment files
+.env
+.env.local
+.env.production
+
+# Exclude testing
+coverage/
+.nyc_output/
+
+# Exclude OS files
+.DS_Store
+Thumbs.db
