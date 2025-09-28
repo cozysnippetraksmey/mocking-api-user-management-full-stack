@@ -1,6 +1,8 @@
 package com.cozysnippet.simple_mocking_api.service;
 
+import com.cozysnippet.simple_mocking_api.config.AppConfig;
 import com.cozysnippet.simple_mocking_api.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -11,14 +13,32 @@ public class UserService {
     
     private final Map<Long, User> users = new HashMap<>();
     private final AtomicLong idCounter = new AtomicLong(1);
-    
-    public UserService() {
-        // Initialize with some mock data
-        createUser(new User(null, "John", "Doe", "john.doe@email.com", "+1-555-0123", "123 Main St", "New York", "USA"));
-        createUser(new User(null, "Jane", "Smith", "jane.smith@email.com", "+1-555-0124", "456 Oak Ave", "Los Angeles", "USA"));
-        createUser(new User(null, "Bob", "Johnson", "bob.johnson@email.com", "+1-555-0125", "789 Pine Rd", "Chicago", "USA"));
-        createUser(new User(null, "Alice", "Brown", "alice.brown@email.com", "+1-555-0126", "321 Elm St", "Houston", "USA"));
-        createUser(new User(null, "Charlie", "Davis", "charlie.davis@email.com", "+1-555-0127", "654 Maple Dr", "Phoenix", "USA"));
+    private final AppConfig appConfig;
+
+    @Autowired
+    public UserService(AppConfig appConfig) {
+        this.appConfig = appConfig;
+
+        // Initialize with mock data based on configuration
+        if (appConfig.getMockData().isEnableInitialData()) {
+            initializeMockData(appConfig.getMockData().getInitialUsersCount());
+        }
+    }
+
+    private void initializeMockData(int count) {
+        // Create initial users based on configuration
+        User[] initialUsers = {
+            new User(null, "John", "Doe", "john.doe@email.com", "+1-555-0123", "123 Main St", "New York", "USA"),
+            new User(null, "Jane", "Smith", "jane.smith@email.com", "+1-555-0124", "456 Oak Ave", "Los Angeles", "USA"),
+            new User(null, "Bob", "Johnson", "bob.johnson@email.com", "+1-555-0125", "789 Pine Rd", "Chicago", "USA"),
+            new User(null, "Alice", "Brown", "alice.brown@email.com", "+1-555-0126", "321 Elm St", "Houston", "USA"),
+            new User(null, "Charlie", "Davis", "charlie.davis@email.com", "+1-555-0127", "654 Maple Dr", "Phoenix", "USA")
+        };
+
+        int usersToCreate = Math.min(count, initialUsers.length);
+        for (int i = 0; i < usersToCreate; i++) {
+            createUser(initialUsers[i]);
+        }
     }
     
     public List<User> getAllUsers() {
@@ -50,6 +70,12 @@ public class UserService {
     }
     
     public List<User> generateUsers(int count) {
+        // Validate count against configured maximum
+        int maxAllowed = appConfig.getUserGeneration().getMaxCount();
+        if (count > maxAllowed) {
+            throw new IllegalArgumentException("Cannot generate more than " + maxAllowed + " users at once");
+        }
+
         List<User> generatedUsers = new ArrayList<>();
         String[] firstNames = {"Alex", "Sam", "Jordan", "Taylor", "Casey", "Morgan", "Riley", "Avery", "Quinn", "Dakota"};
         String[] lastNames = {"Wilson", "Martinez", "Garcia", "Lopez", "Anderson", "Thomas", "Jackson", "White", "Harris", "Clark"};
@@ -73,5 +99,13 @@ public class UserService {
         }
         
         return generatedUsers;
+    }
+
+    public int getDefaultGenerationCount() {
+        return appConfig.getUserGeneration().getDefaultCount();
+    }
+
+    public int getMaxGenerationCount() {
+        return appConfig.getUserGeneration().getMaxCount();
     }
 }

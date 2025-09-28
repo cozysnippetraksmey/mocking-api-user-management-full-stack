@@ -1,0 +1,62 @@
+spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  application:
+    name: simple_mocking_api
+
+  # Server Configuration
+  server:
+    port: ${SERVER_PORT:8080}
+    servlet:
+      context-path: ${CONTEXT_PATH:/}
+
+  # CORS Configuration
+  web:
+    cors:
+      allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:4200,http://localhost:80}
+      allowed-methods: ${CORS_ALLOWED_METHODS:GET,POST,PUT,DELETE,OPTIONS}
+      allowed-headers: ${CORS_ALLOWED_HEADERS:*}
+      allow-credentials: ${CORS_ALLOW_CREDENTIALS:true}
+
+# Tracing Configuration
+management:
+  tracing:
+    sampling:
+      probability: ${TRACING_SAMPLE_RATE:1.0}  # Sample 100% for development, reduce for production
+    enabled: ${TRACING_ENABLED:true}
+  zipkin:
+    tracing:
+      endpoint: ${ZIPKIN_ENDPOINT:http://localhost:9411/api/v2/spans}
+      enabled: ${ZIPKIN_ENABLED:false}  # Disable by default, enable when you have Zipkin server
+  endpoints:
+    web:
+      exposure:
+        include: ${MANAGEMENT_ENDPOINTS:health,info,metrics,prometheus}
+  endpoint:
+    health:
+      show-details: ${HEALTH_SHOW_DETAILS:when-authorized}
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+
+# Application Configuration
+app:
+  # User Generation Settings
+  user-generation:
+    max-count: ${MAX_USER_GENERATION:100}
+    default-count: ${DEFAULT_USER_GENERATION:10}
+
+  # Mock Data Configuration
+  mock-data:
+    initial-users-count: ${INITIAL_USERS_COUNT:5}
+    enable-initial-data: ${ENABLE_INITIAL_DATA:true}
+
+# Logging Configuration
+logging:
+  level:
+    com.cozysnippet.simple_mocking_api: ${LOG_LEVEL:INFO}
+    org.springframework.web: ${WEB_LOG_LEVEL:WARN}
+  pattern:
+    console: "${CONSOLE_LOG_PATTERN:%d{yyyy-MM-dd HH:mm:ss} - %msg%n}"
+
