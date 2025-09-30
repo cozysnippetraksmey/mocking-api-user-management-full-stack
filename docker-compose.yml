@@ -40,7 +40,7 @@ services:
 
   frontend:
     build:
-      context: ./mocking-api-portal
+      context: simple_mocking-api-portal
       dockerfile: Dockerfile
     container_name: user-management-frontend
     ports:

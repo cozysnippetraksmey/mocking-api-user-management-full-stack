@@ -1,29 +1,51 @@
 # Service Discovery in Kubernetes
 
-Service discovery in Kubernetes is the process of automatically detecting and connecting services within a cluster. It allows applications to find and communicate with each other without requiring manual configuration of IP addresses or endpoints.
+Service discovery in Kubernetes is the process of automatically detecting and connecting services within a Kubernetes cluster. It allows applications to find and communicate with each other without requiring manual configuration of IP addresses or ports.
 
-## Key Concepts
+## How Service Discovery Works
 
-### 1. **Services**
-A Kubernetes Service is an abstraction that defines a logical set of Pods and a policy to access them. Services provide a stable endpoint (ClusterIP, NodePort, or LoadBalancer) for accessing Pods, even if the underlying Pods' IP addresses change.
+Kubernetes provides two primary mechanisms for service discovery:
+
+### 1. **Environment Variables**
+   - When a Pod is created, Kubernetes injects environment variables for all Services in the same namespace.
+   - These variables include the Service's cluster IP and port.
+   - Example:
+     ```bash
+     MY_SERVICE_SERVICE_HOST=10.96.0.1
+     MY_SERVICE_SERVICE_PORT=80
+     ```
 
 ### 2. **DNS-Based Service Discovery**
-Kubernetes includes a built-in DNS server that automatically creates DNS records for Services. Applications can use these DNS names to discover and connect to other services.
+   - Kubernetes includes a built-in DNS server that automatically creates DNS records for Services.
+   - Applications can use these DNS names to connect to Services.
+   - Example:
+     ```bash
+     curl http://my-service.my-namespace.svc.cluster.local
+     ```
 
-For example, if you have a Service named `my-service` in the `default` namespace, it can be accessed using the DNS name:
-```
-my-service.default.svc.cluster.local
-```
+## Types of Services
 
-### 3. **Environment Variables**
-When a Pod is created, Kubernetes injects environment variables for all Services in the same namespace. These variables include the Service's ClusterIP and port.
+Kubernetes offers different types of Services for various use cases:
 
-### 4. **Headless Services**
-For advanced use cases, you can create a "headless" Service by setting the `clusterIP` field to `None`. This allows clients to directly discover individual Pod IPs instead of a single Service IP.
+1. **ClusterIP** (default):
+   - Exposes the Service within the cluster.
+   - Accessible only from within the cluster.
 
-## Example
+2. **NodePort**:
+   - Exposes the Service on a specific port of each Node.
+   - Accessible from outside the cluster using `<NodeIP>:<NodePort>`.
 
-### Service Definition
+3. **LoadBalancer**:
+   - Provisions an external load balancer to expose the Service.
+   - Requires integration with a cloud provider.
+
+4. **ExternalName**:
+   - Maps a Service to an external DNS name.
+
+## Example: Creating a Service
+
+Here’s an example of a Kubernetes Service manifest:
+
 ```yaml
 apiVersion: v1
 kind: Service
@@ -36,24 +58,7 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 8080
+  type: ClusterIP
 ```
 
-### DNS Resolution
-If the above Service is in the `default` namespace, its DNS name will be:
-```
-my-service.default.svc.cluster.local
-```
-
-### Accessing the Service
-Applications can use the DNS name or environment variables to connect to the Service.
-
-## Benefits of Service Discovery
-- Simplifies communication between microservices.
-- Provides a stable endpoint for accessing Pods.
-- Automatically updates when Pods are added or removed.
-
-## Tools and Add-Ons
-- **CoreDNS**: The default DNS server in Kubernetes.
-- **External-DNS**: Manages DNS records for Kubernetes Services in external DNS providers.
-
-For more details, refer to the [Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/service/).
+- `selector`: Matches Pods with the label `app: my-app`.

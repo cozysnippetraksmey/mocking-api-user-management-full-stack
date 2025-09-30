@@ -1,150 +1,18 @@
-2025-09-28 20:37:37.455 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - Starting SimpleMockingApiApplication using Java 17.0.16 with PID 25978 (/home/raksmey/Programmings/devops/kubernetes-with-teach-bruno/simple_mocking_api/build/classes/java/main started by raksmey in /home/raksmey/Programmings/devops/kubernetes-with-teach-bruno)
-2025-09-28 20:37:37.459 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - The following 1 profile is active: "dev"
-2025-09-28 20:37:38.024 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Initializing ProtocolHandler ["http-nio-8080"]
-2025-09-28 20:37:38.025 INFO  [main] o.a.c.core.StandardService [,] - Starting service [Tomcat]
-2025-09-28 20:37:38.026 INFO  [main] o.a.c.core.StandardEngine [,] - Starting Servlet engine: [Apache Tomcat/10.1.46]
-2025-09-28 20:37:38.053 INFO  [main] o.a.c.c.C.[.[localhost].[/] [,] - Initializing Spring embedded WebApplicationContext
-2025-09-28 20:37:38.231 DEBUG [main] i.m.c.u.i.l.InternalLoggerFactory [,] - Using SLF4J as the default logging framework
-2025-09-28 20:37:38.273 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Starting ProtocolHandler ["http-nio-8080"]
-2025-09-28 20:37:38.277 WARN  [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [,] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2025-09-28 20:37:38.300 ERROR [main] o.s.b.d.LoggingFailureAnalysisReporter [,] - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8080 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-
-2025-09-28 20:37:50.318 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - Starting SimpleMockingApiApplication using Java 17.0.16 with PID 26253 (/home/raksmey/Programmings/devops/kubernetes-with-teach-bruno/simple_mocking_api/build/classes/java/main started by raksmey in /home/raksmey/Programmings/devops/kubernetes-with-teach-bruno)
-2025-09-28 20:37:50.322 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - The following 1 profile is active: "dev"
-2025-09-28 20:37:50.879 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Initializing ProtocolHandler ["http-nio-8080"]
-2025-09-28 20:37:50.880 INFO  [main] o.a.c.core.StandardService [,] - Starting service [Tomcat]
-2025-09-28 20:37:50.881 INFO  [main] o.a.c.core.StandardEngine [,] - Starting Servlet engine: [Apache Tomcat/10.1.46]
-2025-09-28 20:37:50.910 INFO  [main] o.a.c.c.C.[.[localhost].[/] [,] - Initializing Spring embedded WebApplicationContext
-2025-09-28 20:37:51.088 DEBUG [main] i.m.c.u.i.l.InternalLoggerFactory [,] - Using SLF4J as the default logging framework
-2025-09-28 20:37:51.136 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Starting ProtocolHandler ["http-nio-8080"]
-2025-09-28 20:37:51.151 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - Started SimpleMockingApiApplication in 1.399 seconds (process running for 1.724)
-2025-09-28 20:39:35.048 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - Starting SimpleMockingApiApplication using Java 17.0.16 with PID 26815 (/home/raksmey/Programmings/devops/kubernetes-with-teach-bruno/simple_mocking_api/build/classes/java/main started by raksmey in /home/raksmey/Programmings/devops/kubernetes-with-teach-bruno)
-2025-09-28 20:39:35.052 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - The following 1 profile is active: "dev"
-2025-09-28 20:39:35.640 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Initializing ProtocolHandler ["http-nio-8080"]
-2025-09-28 20:39:35.642 INFO  [main] o.a.c.core.StandardService [,] - Starting service [Tomcat]
-2025-09-28 20:39:35.642 INFO  [main] o.a.c.core.StandardEngine [,] - Starting Servlet engine: [Apache Tomcat/10.1.46]
-2025-09-28 20:39:35.672 INFO  [main] o.a.c.c.C.[.[localhost].[/] [,] - Initializing Spring embedded WebApplicationContext
-2025-09-28 20:39:35.870 DEBUG [main] i.m.c.u.i.l.InternalLoggerFactory [,] - Using SLF4J as the default logging framework
-2025-09-28 20:39:35.923 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Starting ProtocolHandler ["http-nio-8080"]
-2025-09-28 20:39:35.940 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - Started SimpleMockingApiApplication in 1.425 seconds (process running for 1.746)
-2025-09-28 20:49:44.648 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - Starting SimpleMockingApiApplication using Java 17.0.16 with PID 27915 (/home/raksmey/Programmings/devops/kubernetes-with-teach-bruno/simple_mocking_api/build/classes/java/main started by raksmey in /home/raksmey/Programmings/devops/kubernetes-with-teach-bruno)
-2025-09-28 20:49:44.652 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - The following 1 profile is active: "dev"
-2025-09-28 20:49:45.205 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Initializing ProtocolHandler ["http-nio-8080"]
-2025-09-28 20:49:45.206 INFO  [main] o.a.c.core.StandardService [,] - Starting service [Tomcat]
-2025-09-28 20:49:45.207 INFO  [main] o.a.c.core.StandardEngine [,] - Starting Servlet engine: [Apache Tomcat/10.1.46]
-2025-09-28 20:49:45.235 INFO  [main] o.a.c.c.C.[.[localhost].[/] [,] - Initializing Spring embedded WebApplicationContext
-2025-09-28 20:49:45.412 DEBUG [main] i.m.c.u.i.l.InternalLoggerFactory [,] - Using SLF4J as the default logging framework
-2025-09-28 20:49:45.455 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Starting ProtocolHandler ["http-nio-8080"]
-2025-09-28 20:49:45.471 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - Started SimpleMockingApiApplication in 1.371 seconds (process running for 1.664)
-2025-09-28 20:49:58.457 INFO  [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/] [,] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-09-28 20:50:59.798 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - Starting SimpleMockingApiApplication using Java 17.0.16 with PID 28547 (/home/raksmey/Programmings/devops/kubernetes-with-teach-bruno/simple_mocking_api/build/classes/java/main started by raksmey in /home/raksmey/Programmings/devops/kubernetes-with-teach-bruno)
-2025-09-28 20:50:59.803 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - The following 1 profile is active: "dev"
-2025-09-28 20:51:00.419 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Initializing ProtocolHandler ["http-nio-8080"]
-2025-09-28 20:51:00.421 INFO  [main] o.a.c.core.StandardService [,] - Starting service [Tomcat]
-2025-09-28 20:51:00.421 INFO  [main] o.a.c.core.StandardEngine [,] - Starting Servlet engine: [Apache Tomcat/10.1.46]
-2025-09-28 20:51:00.453 INFO  [main] o.a.c.c.C.[.[localhost].[/] [,] - Initializing Spring embedded WebApplicationContext
-2025-09-28 20:51:00.713 DEBUG [main] i.m.c.u.i.l.InternalLoggerFactory [,] - Using SLF4J as the default logging framework
-2025-09-28 20:51:00.786 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Starting ProtocolHandler ["http-nio-8080"]
-2025-09-28 20:51:00.803 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - Started SimpleMockingApiApplication in 1.575 seconds (process running for 1.919)
-2025-09-28 20:51:06.085 INFO  [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/] [,] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-09-28 20:51:06.562 INFO  [http-nio-8080-exec-8] o.s.a.AbstractOpenApiResource [,] - Init duration for springdoc-openapi is: 161 ms
-2025-09-28 20:53:01.342 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - Starting SimpleMockingApiApplication using Java 17.0.16 with PID 28910 (/home/raksmey/Programmings/devops/kubernetes-with-teach-bruno/simple_mocking_api/build/classes/java/main started by raksmey in /home/raksmey/Programmings/devops/kubernetes-with-teach-bruno)
-2025-09-28 20:53:01.346 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - The following 1 profile is active: "dev"
-2025-09-28 20:53:01.946 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Initializing ProtocolHandler ["http-nio-8080"]
-2025-09-28 20:53:01.948 INFO  [main] o.a.c.core.StandardService [,] - Starting service [Tomcat]
-2025-09-28 20:53:01.948 INFO  [main] o.a.c.core.StandardEngine [,] - Starting Servlet engine: [Apache Tomcat/10.1.46]
-2025-09-28 20:53:01.980 INFO  [main] o.a.c.c.C.[.[localhost].[/] [,] - Initializing Spring embedded WebApplicationContext
-2025-09-28 20:53:02.236 DEBUG [main] i.m.c.u.i.l.InternalLoggerFactory [,] - Using SLF4J as the default logging framework
-2025-09-28 20:53:02.306 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Starting ProtocolHandler ["http-nio-8080"]
-2025-09-28 20:53:02.323 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - Started SimpleMockingApiApplication in 1.516 seconds (process running for 1.818)
-2025-09-28 20:53:09.840 INFO  [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/] [,] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-09-28 20:53:10.299 INFO  [http-nio-8080-exec-6] o.s.a.AbstractOpenApiResource [,] - Init duration for springdoc-openapi is: 172 ms
-2025-09-28 21:00:56.399 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - Starting SimpleMockingApiApplication using Java 17.0.16 with PID 32013 (/home/raksmey/Programmings/devops/kubernetes-with-teach-bruno/simple_mocking_api/build/classes/java/main started by raksmey in /home/raksmey/Programmings/devops/kubernetes-with-teach-bruno)
-2025-09-28 21:00:56.403 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - The following 1 profile is active: "dev"
-2025-09-28 21:00:57.220 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Initializing ProtocolHandler ["http-nio-8080"]
-2025-09-28 21:00:57.222 INFO  [main] o.a.c.core.StandardService [,] - Starting service [Tomcat]
-2025-09-28 21:00:57.222 INFO  [main] o.a.c.core.StandardEngine [,] - Starting Servlet engine: [Apache Tomcat/10.1.46]
-2025-09-28 21:00:57.256 INFO  [main] o.a.c.c.C.[.[localhost].[/] [,] - Initializing Spring embedded WebApplicationContext
-2025-09-28 21:00:57.283 DEBUG [main] i.m.c.u.i.l.InternalLoggerFactory [,] - Using SLF4J as the default logging framework
-2025-09-28 21:00:57.838 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Starting ProtocolHandler ["http-nio-8080"]
-2025-09-28 21:00:57.842 WARN  [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [,] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2025-09-28 21:00:57.873 ERROR [main] o.s.b.d.LoggingFailureAnalysisReporter [,] - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8080 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-
-2025-09-28 21:01:13.345 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - Starting SimpleMockingApiApplication using Java 17.0.16 with PID 32305 (/home/raksmey/Programmings/devops/kubernetes-with-teach-bruno/simple_mocking_api/build/classes/java/main started by raksmey in /home/raksmey/Programmings/devops/kubernetes-with-teach-bruno)
-2025-09-28 21:01:13.349 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - The following 1 profile is active: "dev"
-2025-09-28 21:01:14.143 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Initializing ProtocolHandler ["http-nio-8080"]
-2025-09-28 21:01:14.144 INFO  [main] o.a.c.core.StandardService [,] - Starting service [Tomcat]
-2025-09-28 21:01:14.144 INFO  [main] o.a.c.core.StandardEngine [,] - Starting Servlet engine: [Apache Tomcat/10.1.46]
-2025-09-28 21:01:14.178 INFO  [main] o.a.c.c.C.[.[localhost].[/] [,] - Initializing Spring embedded WebApplicationContext
-2025-09-28 21:01:14.205 DEBUG [main] i.m.c.u.i.l.InternalLoggerFactory [,] - Using SLF4J as the default logging framework
-2025-09-28 21:01:14.752 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Starting ProtocolHandler ["http-nio-8080"]
-2025-09-28 21:01:14.775 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - Started SimpleMockingApiApplication in 1.961 seconds (process running for 2.287)
-2025-09-28 21:01:14.978 INFO  [RMI TCP Connection(4)-127.0.0.1] o.a.c.c.C.[.[localhost].[/] [,] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-09-28 21:01:24.452 INFO  [http-nio-8080-exec-5] o.s.a.AbstractOpenApiResource [68d93fb4b09517bc3ceab907c41d8e2a,3ceab907c41d8e2a] - Init duration for springdoc-openapi is: 142 ms
-2025-09-28 21:01:29.837 INFO  [http-nio-8080-exec-6] c.c.s.c.UserController [68d93fb9ad76b6fc6b35f0904f5a85d2,6b35f0904f5a85d2] - === TRACING TEST START ===
-2025-09-28 21:01:29.837 INFO  [http-nio-8080-exec-6] c.c.s.c.UserController [68d93fb9ad76b6fc6b35f0904f5a85d2,6b35f0904f5a85d2] - Testing if trace and span IDs are visible in logs
-2025-09-28 21:01:29.838 INFO  [http-nio-8080-exec-6] c.c.s.c.UserController [68d93fb9ad76b6fc6b35f0904f5a85d2,6b35f0904f5a85d2] - === TRACING TEST END ===
-2025-09-28 21:02:32.426 INFO  [http-nio-8080-exec-9] c.c.s.c.UserController [68d93ff8130e5d8220382104dd20b121,20382104dd20b121] - Fetching all users
-2025-09-28 21:02:32.426 INFO  [http-nio-8080-exec-9] c.c.s.c.UserController [68d93ff8130e5d8220382104dd20b121,20382104dd20b121] - Retrieved 15 users
-2025-09-28 21:04:27.207 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - Starting SimpleMockingApiApplication using Java 17.0.16 with PID 32731 (/home/raksmey/Programmings/devops/kubernetes-with-teach-bruno/simple_mocking_api/build/classes/java/main started by raksmey in /home/raksmey/Programmings/devops/kubernetes-with-teach-bruno)
-2025-09-28 21:04:27.212 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - The following 1 profile is active: "dev"
-2025-09-28 21:04:28.024 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Initializing ProtocolHandler ["http-nio-8080"]
-2025-09-28 21:04:28.026 INFO  [main] o.a.c.core.StandardService [,] - Starting service [Tomcat]
-2025-09-28 21:04:28.026 INFO  [main] o.a.c.core.StandardEngine [,] - Starting Servlet engine: [Apache Tomcat/10.1.46]
-2025-09-28 21:04:28.062 INFO  [main] o.a.c.c.C.[.[localhost].[/] [,] - Initializing Spring embedded WebApplicationContext
-2025-09-28 21:04:28.089 DEBUG [main] i.m.c.u.i.l.InternalLoggerFactory [,] - Using SLF4J as the default logging framework
-2025-09-28 21:04:28.644 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Starting ProtocolHandler ["http-nio-8080"]
-2025-09-28 21:04:28.667 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - Started SimpleMockingApiApplication in 1.995 seconds (process running for 2.288)
-2025-09-28 21:04:29.154 INFO  [RMI TCP Connection(1)-127.0.0.1] o.a.c.c.C.[.[localhost].[/] [,] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-09-28 21:04:47.894 INFO  [http-nio-8080-exec-1] c.c.s.c.UserController [68d9407f4d6abe84004307e13eb47b59,004307e13eb47b59] - Fetching all users
-2025-09-28 21:04:47.895 INFO  [http-nio-8080-exec-1] c.c.s.c.UserController [68d9407f4d6abe84004307e13eb47b59,004307e13eb47b59] - Retrieved 5 users
-2025-09-28 21:05:02.398 INFO  [http-nio-8080-exec-4] c.c.s.c.UserController [68d9408ec6712183030735e9dec0568d,030735e9dec0568d] - Fetching all users
-2025-09-28 21:05:02.399 INFO  [http-nio-8080-exec-4] c.c.s.c.UserController [68d9408ec6712183030735e9dec0568d,030735e9dec0568d] - Retrieved 15 users
-2025-09-28 21:05:15.862 INFO  [http-nio-8080-exec-6] c.c.s.c.UserController [68d9409b4f9a5358e42a1b68ba03ebdd,e42a1b68ba03ebdd] - Deleting user with ID: 13
-2025-09-28 21:05:15.863 INFO  [http-nio-8080-exec-6] c.c.s.c.UserController [68d9409b4f9a5358e42a1b68ba03ebdd,e42a1b68ba03ebdd] - User with ID 13 deleted
-2025-09-28 21:05:15.870 INFO  [http-nio-8080-exec-7] c.c.s.c.UserController [68d9409b299c19c6d4e1e2371ed2fe29,d4e1e2371ed2fe29] - Fetching all users
-2025-09-28 21:05:15.871 INFO  [http-nio-8080-exec-7] c.c.s.c.UserController [68d9409b299c19c6d4e1e2371ed2fe29,d4e1e2371ed2fe29] - Retrieved 14 users
-2025-09-28 21:05:20.209 INFO  [http-nio-8080-exec-9] c.c.s.c.UserController [68d940a092a0024b98f3c499c3ffd5ed,98f3c499c3ffd5ed] - Deleting user with ID: 1
-2025-09-28 21:05:20.210 INFO  [http-nio-8080-exec-9] c.c.s.c.UserController [68d940a092a0024b98f3c499c3ffd5ed,98f3c499c3ffd5ed] - User with ID 1 deleted
-2025-09-28 21:05:20.215 INFO  [http-nio-8080-exec-10] c.c.s.c.UserController [68d940a0ebe9f255fe8b8198bd53cded,fe8b8198bd53cded] - Fetching all users
-2025-09-28 21:05:20.216 INFO  [http-nio-8080-exec-10] c.c.s.c.UserController [68d940a0ebe9f255fe8b8198bd53cded,fe8b8198bd53cded] - Retrieved 13 users
-2025-09-28 21:05:25.792 INFO  [http-nio-8080-exec-2] c.c.s.c.UserController [68d940a53b3a0af06f590866c83a9c01,6f590866c83a9c01] - Deleting user with ID: 2
-2025-09-28 21:05:25.792 INFO  [http-nio-8080-exec-2] c.c.s.c.UserController [68d940a53b3a0af06f590866c83a9c01,6f590866c83a9c01] - User with ID 2 deleted
-2025-09-28 21:05:25.799 INFO  [http-nio-8080-exec-3] c.c.s.c.UserController [68d940a5d0ac1d811689ea06f7d6ed7a,1689ea06f7d6ed7a] - Fetching all users
-2025-09-28 21:05:25.799 INFO  [http-nio-8080-exec-3] c.c.s.c.UserController [68d940a5d0ac1d811689ea06f7d6ed7a,1689ea06f7d6ed7a] - Retrieved 12 users
-2025-09-28 21:05:27.841 INFO  [http-nio-8080-exec-5] c.c.s.c.UserController [68d940a7767f3d28b2b872b3caae082c,b2b872b3caae082c] - Updating user with ID: 6
-2025-09-28 21:05:27.849 INFO  [http-nio-8080-exec-5] c.c.s.c.UserController [68d940a7767f3d28b2b872b3caae082c,b2b872b3caae082c] - User updated: dakota.white@example.com
-2025-09-28 21:05:27.857 INFO  [http-nio-8080-exec-6] c.c.s.c.UserController [68d940a752eabb058008577a0acbd2a8,8008577a0acbd2a8] - Fetching all users
-2025-09-28 21:05:27.858 INFO  [http-nio-8080-exec-6] c.c.s.c.UserController [68d940a752eabb058008577a0acbd2a8,8008577a0acbd2a8] - Retrieved 12 users
-2025-09-28 21:05:30.648 INFO  [http-nio-8080-exec-9] c.c.s.c.UserController [68d940aacb5e42d868c65161302f7054,68c65161302f7054] - Fetching all users
-2025-09-28 21:05:30.648 INFO  [http-nio-8080-exec-9] c.c.s.c.UserController [68d940aacb5e42d868c65161302f7054,68c65161302f7054] - Retrieved 14 users
-2025-09-28 21:05:32.631 INFO  [http-nio-8080-exec-10] c.c.s.c.UserController [68d940ac248378c2e0d8685de98be0c6,e0d8685de98be0c6] - Fetching all users
-2025-09-28 21:05:32.632 INFO  [http-nio-8080-exec-10] c.c.s.c.UserController [68d940ac248378c2e0d8685de98be0c6,e0d8685de98be0c6] - Retrieved 14 users
-2025-09-28 21:05:35.511 INFO  [http-nio-8080-exec-1] c.c.s.c.UserController [68d940af5dc2858348c8dacc4f240243,48c8dacc4f240243] - Fetching all users
-2025-09-28 21:05:35.511 INFO  [http-nio-8080-exec-1] c.c.s.c.UserController [68d940af5dc2858348c8dacc4f240243,48c8dacc4f240243] - Retrieved 14 users
-2025-09-28 21:05:38.459 INFO  [http-nio-8080-exec-2] c.c.s.c.UserController [68d940b215a0b688e3c0f130dc87215e,e3c0f130dc87215e] - Fetching all users
-2025-09-28 21:05:38.465 INFO  [http-nio-8080-exec-2] c.c.s.c.UserController [68d940b215a0b688e3c0f130dc87215e,e3c0f130dc87215e] - Retrieved 14 users
+2025-09-30 18:18:47.242 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - Starting SimpleMockingApiApplication using Java 17.0.16 with PID 14305 (/home/raksmey/Programmings/devops/kubernetes-with-teach-bruno/simple_mocking_api/build/classes/java/main started by raksmey in /home/raksmey/Programmings/devops/kubernetes-with-teach-bruno)
+2025-09-30 18:18:47.248 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - The following 1 profile is active: "dev"
+2025-09-30 18:18:48.165 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Initializing ProtocolHandler ["http-nio-8080"]
+2025-09-30 18:18:48.166 INFO  [main] o.a.c.core.StandardService [,] - Starting service [Tomcat]
+2025-09-30 18:18:48.167 INFO  [main] o.a.c.core.StandardEngine [,] - Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-09-30 18:18:48.204 INFO  [main] o.a.c.c.C.[.[localhost].[/] [,] - Initializing Spring embedded WebApplicationContext
+2025-09-30 18:18:48.243 DEBUG [main] i.m.c.u.i.l.InternalLoggerFactory [,] - Using SLF4J as the default logging framework
+2025-09-30 18:18:48.843 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Starting ProtocolHandler ["http-nio-8080"]
+2025-09-30 18:18:48.866 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - Started SimpleMockingApiApplication in 2.28 seconds (process running for 2.616)
+2025-09-30 18:18:49.128 INFO  [RMI TCP Connection(4)-127.0.0.1] o.a.c.c.C.[.[localhost].[/] [,] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-30 18:19:32.921 INFO  [http-nio-8080-exec-1] c.c.s.c.UserController [68dbbcc480c92e3ae6e01ad6fa951649,e6e01ad6fa951649] - Fetching all users
+2025-09-30 18:19:32.922 INFO  [http-nio-8080-exec-1] c.c.s.c.UserController [68dbbcc480c92e3ae6e01ad6fa951649,e6e01ad6fa951649] - Retrieved 5 users
+2025-09-30 18:19:40.740 INFO  [http-nio-8080-exec-3] c.c.s.c.UserController [68dbbccc747283a3882122106855f777,882122106855f777] - Deleting user with ID: 4
+2025-09-30 18:19:40.749 INFO  [http-nio-8080-exec-3] c.c.s.c.UserController [68dbbccc747283a3882122106855f777,882122106855f777] - User with ID 4 deleted
+2025-09-30 18:19:40.774 INFO  [http-nio-8080-exec-4] c.c.s.c.UserController [68dbbccc9c3ebcd596689b772b9cb9a6,96689b772b9cb9a6] - Fetching all users
+2025-09-30 18:19:40.775 INFO  [http-nio-8080-exec-4] c.c.s.c.UserController [68dbbccc9c3ebcd596689b772b9cb9a6,96689b772b9cb9a6] - Retrieved 4 users
+2025-09-30 18:19:42.773 INFO  [http-nio-8080-exec-5] c.c.s.c.UserController [68dbbccec1fc179bde686cbcb760eebe,de686cbcb760eebe] - Fetching all users
+2025-09-30 18:19:42.774 INFO  [http-nio-8080-exec-5] c.c.s.c.UserController [68dbbccec1fc179bde686cbcb760eebe,de686cbcb760eebe] - Retrieved 4 users

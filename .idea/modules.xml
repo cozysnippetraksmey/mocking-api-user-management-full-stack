@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/kubernetes-with-teach-bruno.iml" filepath="$PROJECT_DIR$/.idea/kubernetes-with-teach-bruno.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/simple_mocking_api.main.iml" filepath="$PROJECT_DIR$/.idea/modules/simple_mocking_api.main.iml" />
     </modules>
   </component>
 </project>
