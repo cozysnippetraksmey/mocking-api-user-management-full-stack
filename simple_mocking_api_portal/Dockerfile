@@ -45,9 +45,7 @@ USER angular
 # Expose port 4000 for the Angular SSR server
 EXPOSE 4000
 
-# Health check to ensure the server is running
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD node -e "require('http').get('http://localhost:4000', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"
+# NO HEALTHCHECK in Dockerfile - let Docker Compose/Stack handle it
 
 # Start the SSR server directly
 CMD ["node", "dist/mocking-api-portal/server/server.mjs"]
