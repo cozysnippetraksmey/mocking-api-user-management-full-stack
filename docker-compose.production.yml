@@ -1,0 +1,47 @@
+services:
+  # Backend API Service
+  backend:
+    image: cozysnippet/simple-mocking-api:latest
+    container_name: simple-mocking-api
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SERVER_PORT=8080
+      - CORS_ALLOWED_ORIGINS=http://localhost:4000,http://localhost:4200,http://localhost:80
+    networks:
+      - app-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+  # Frontend SSR Service
+  frontend:
+    image: cozysnippet/simple-mocking-api-portal:latest
+    container_name: simple-mocking-api-portal
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=production
+      - API_BASE_URL=http://localhost:8080
+    networks:
+      - app-network
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:4000', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+
+networks:
+  app-network:
+    driver: bridge
+    name: mocking-api-network

@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  backend:
+    image: cozysnippet/simple-mocking-api:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - CORS_ALLOWED_ORIGINS=http://localhost:4000,http://localhost:4200
+    networks:
+      - app-network
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+      update_config:
+        parallelism: 1
+        delay: 10s
+        failure_action: rollback
+      resources:
+        limits:
+          memory: 384M
+          cpus: "0.4"
+        reservations:
+          memory: 192M
+          cpus: "0.2"
+
+  frontend:
+    image: cozysnippet/simple-mocking-api-portal:latest
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - app-network
+    healthcheck:
+      disable: true
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+      update_config:
+        parallelism: 1
+        delay: 10s
+        failure_action: rollback
+      resources:
+        limits:
+          memory: 256M
+          cpus: "0.3"
+        reservations:
+          memory: 128M
+          cpus: "0.15"
+
+networks:
+  app-network:
+    driver: overlay
+    attachable: true

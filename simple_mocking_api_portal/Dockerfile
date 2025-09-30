@@ -1,4 +1,4 @@
-# Multi-stage build for Angular
+# Multi-stage build for Angular SSR
 # Stage 1: Build the Angular application
 FROM node:20-alpine AS build
 
@@ -14,20 +14,40 @@ RUN npm ci
 # Copy source code
 COPY . .
 
-# Build the application for production
+# Build the application for production (generates both SSR and browser bundles)
 RUN npm run build
 
-# Stage 2: Serve the application with Nginx
-FROM nginx:alpine
+# Stage 2: Production - Node.js server for SSR
+FROM node:20-alpine AS production
 
-# Copy the built application from the build stage
-COPY --from=build /app/dist/mocking-api-portal /usr/share/nginx/html
+# Set working directory
+WORKDIR /app
 
-# Copy custom nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Copy package.json for production dependencies
+COPY package*.json ./
 
-# Expose port 80
-EXPOSE 80
+# Install only production dependencies
+RUN npm ci --only=production && npm cache clean --force
 
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Copy the built application from build stage
+COPY --from=build /app/dist/mocking-api-portal ./dist/mocking-api-portal
+
+# Create a non-root user for security
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S angular -u 1001
+
+# Change ownership of app directory
+RUN chown -R angular:nodejs /app
+
+# Switch to non-root user
+USER angular
+
+# Expose port 4000 for the Angular SSR server
+EXPOSE 4000
+
+# Health check to ensure the server is running
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD node -e "require('http').get('http://localhost:4000', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"
+
+# Start the SSR server directly
+CMD ["node", "dist/mocking-api-portal/server/server.mjs"]

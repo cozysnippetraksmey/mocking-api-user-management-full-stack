@@ -15,7 +15,7 @@ import java.util.List;
 @Configuration
 public class CorsConfig implements WebMvcConfigurer {
 
-    @Value("${CORS_ALLOWED_ORIGINS:http://localhost:4200,http://localhost:80}")
+    @Value("${CORS_ALLOWED_ORIGINS:http://localhost:4000,http://localhost:4200,http://localhost:80}")
     private String allowedOrigins;
 
     @Value("${CORS_ALLOWED_METHODS:GET,POST,PUT,DELETE,OPTIONS}")

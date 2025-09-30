@@ -22,18 +22,34 @@ RUN ./gradlew build -x test
 # Multi-stage build: Stage 2 - Create runtime image
 FROM eclipse-temurin:17-jre-alpine
 
+# Install curl for health checks
+RUN apk add --no-cache curl
+
 # Set working directory
 WORKDIR /app
 
-# Add a non-root user
-RUN adduser -D -h /app appuser
-USER appuser
+# Add a non-root user with specific UID/GID for consistency
+RUN addgroup -g 1001 -S spring && \
+    adduser -S spring -u 1001 -G spring
+
+# Create logs directory and set permissions
+RUN mkdir -p /app/logs && \
+    chown -R spring:spring /app
 
 # Copy the built application from the build stage
 COPY --from=build /app/build/libs/simple_mocking_api-0.0.1-SNAPSHOT.jar app.jar
 
+# Change ownership of the app
+RUN chown spring:spring app.jar
+
+# Switch to non-root user
+USER spring
+
 # Expose port 8080
 EXPOSE 8080
 
-# Run the application
-CMD ["java", "-jar", "app.jar"]
+# Set JVM options for containerized environment
+ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0 -XX:+UseG1GC"
+
+# Run the application with optimized JVM settings
+CMD ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]

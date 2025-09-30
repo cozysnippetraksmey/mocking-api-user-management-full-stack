@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://your-api-domain.com',
+  apiUrl: process.env['API_BASE_URL'] || 'http://localhost:8080',
   apiVersion: 'v1',
   features: {
     enableToast: true,
@@ -8,4 +8,3 @@ export const environment = {
     defaultPageSize: 10
   }
 };
-
