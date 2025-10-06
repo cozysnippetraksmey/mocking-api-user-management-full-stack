@@ -16,7 +16,7 @@ export interface AppConfig {
   providedIn: 'root'
 })
 export class ConfigService {
-  private config: AppConfig;
+  private readonly config: AppConfig;
 
   constructor() {
     this.config = this.loadConfig();

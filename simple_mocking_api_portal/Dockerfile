@@ -14,8 +14,8 @@ RUN npm ci
 # Copy source code
 COPY . .
 
-# Build the application for production (generates both SSR and browser bundles)
-RUN npm run build
+# Build the application for production
+RUN npm run build -- --configuration=production
 
 # Stage 2: Production - Node.js server for SSR
 FROM node:20-alpine AS production
@@ -49,5 +49,3 @@ EXPOSE 4000
 
 # Start the SSR server directly
 CMD ["node", "dist/mocking-api-portal/server/server.mjs"]
-
-

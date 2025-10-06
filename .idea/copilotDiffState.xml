@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/simple_mocking_api_portal/src/environments/environment.ts">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/simple_mocking_api_portal/src/environments/environment.ts" />
+              <option name="originalContent" value="// This file can be replaced during build by using the `fileReplacements` array.&#10;// `ng build` replaces `environment.ts` with `environment.prod.ts`.&#10;// The list of file replacements can be found in `angular.json`.&#10;&#10;export const environment = {&#10;  production: false,&#10;  apiUrl: 'http://localhost:8080',&#10;  apiVersion: 'v1',&#10;  features: {&#10;    enableToast: true,&#10;    enablePagination: true,&#10;    defaultPageSize: 10&#10;  }&#10;};&#10;" />
+              <option name="updatedContent" value="// This file can be replaced during build by using the `fileReplacements` array.&#10;// `ng build` replaces `environment.ts` with `environment.prod.ts`.&#10;// The list of file replacements can be found in `angular.json`.&#10;&#10;export const environment = {&#10;  production: false,&#10;  apiUrl: 'http://localhost:8080',&#10;  apiVersion: 'v1',&#10;  features: {&#10;    enableToast: true,&#10;    enablePagination: true,&#10;    defaultPageSize: 10&#10;  }&#10;};" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
