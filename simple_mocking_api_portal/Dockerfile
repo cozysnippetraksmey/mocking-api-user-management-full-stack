@@ -49,3 +49,5 @@ EXPOSE 4000
 
 # Start the SSR server directly
 CMD ["node", "dist/mocking-api-portal/server/server.mjs"]
+
+

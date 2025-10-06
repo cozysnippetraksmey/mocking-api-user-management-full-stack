@@ -45,3 +45,4 @@ management:
   endpoint:
     health:
       show-details: ${HEALTH_SHOW_DETAILS:when-authorized}
+
