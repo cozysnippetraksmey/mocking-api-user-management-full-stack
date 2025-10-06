@@ -15,7 +15,7 @@ RUN npm ci
 COPY . .
 
 # Build the application for production
-RUN npm run build -- --configuration=production
+RUN npm run build -- --configuration=traefix
 
 # Stage 2: Production - Node.js server for SSR
 FROM node:20-alpine AS production

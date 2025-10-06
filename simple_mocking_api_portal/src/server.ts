@@ -53,12 +53,24 @@ app.use((req, res, next) => {
  */
 if (isMainModule(import.meta.url)) {
   const port = process.env['PORT'] || 4000;
+  const isProduction = process.env['NODE_ENV'] === 'production';
+
   app.listen(port, (error) => {
     if (error) {
       throw error;
     }
 
     console.log(`Node Express server listening on http://localhost:${port}`);
+
+    if (isProduction) {
+      console.log('Running in PRODUCTION mode');
+    } else {
+      console.log('Running in DEVELOPMENT mode');
+      console.log('Environment variables:', {
+        NODE_ENV: process.env['NODE_ENV'],
+        PORT: process.env['PORT'],
+      });
+    }
   });
 }
 
