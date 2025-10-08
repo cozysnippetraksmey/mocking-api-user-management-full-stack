@@ -1,0 +1,21 @@
+services:
+  backend:
+    image: cozysnippet/simple-mocking-api:latest
+    ports:
+      - "7070:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - CORS_ALLOWED_ORIGINS=http://frontend.localhost,http://localhost:4000,http://localhost:4200
+      - JAVA_OPTS=-Xmx512m -Xms256m
+    networks:
+      - backend-network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8080/actuator/health || exit 1"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+networks:
+  backend-network:
+    driver: bridge

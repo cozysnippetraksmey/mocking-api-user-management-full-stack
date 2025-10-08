@@ -15,16 +15,16 @@ import java.util.List;
 @Configuration
 public class CorsConfig implements WebMvcConfigurer {
 
-    @Value("${CORS_ALLOWED_ORIGINS:http://localhost:4000,http://localhost:4200,http://localhost:80}")
+    @Value("${web.cors.allowed-origins}")
     private String allowedOrigins;
 
-    @Value("${CORS_ALLOWED_METHODS:GET,POST,PUT,DELETE,OPTIONS}")
+    @Value("${web.cors.allowed-methods}")
     private String allowedMethods;
 
-    @Value("${CORS_ALLOWED_HEADERS:*}")
+    @Value("${web.cors.allowed-headers:*}")
     private String allowedHeaders;
 
-    @Value("${CORS_ALLOW_CREDENTIALS:true}")
+    @Value("${web.cors.allow-credentials}")
     private boolean allowCredentials;
 
     @Override

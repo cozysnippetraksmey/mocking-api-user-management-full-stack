@@ -1,18 +1,30 @@
-2025-09-30 18:18:47.242 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - Starting SimpleMockingApiApplication using Java 17.0.16 with PID 14305 (/home/raksmey/Programmings/devops/kubernetes-with-teach-bruno/simple_mocking_api/build/classes/java/main started by raksmey in /home/raksmey/Programmings/devops/kubernetes-with-teach-bruno)
-2025-09-30 18:18:47.248 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - The following 1 profile is active: "dev"
-2025-09-30 18:18:48.165 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Initializing ProtocolHandler ["http-nio-8080"]
-2025-09-30 18:18:48.166 INFO  [main] o.a.c.core.StandardService [,] - Starting service [Tomcat]
-2025-09-30 18:18:48.167 INFO  [main] o.a.c.core.StandardEngine [,] - Starting Servlet engine: [Apache Tomcat/10.1.46]
-2025-09-30 18:18:48.204 INFO  [main] o.a.c.c.C.[.[localhost].[/] [,] - Initializing Spring embedded WebApplicationContext
-2025-09-30 18:18:48.243 DEBUG [main] i.m.c.u.i.l.InternalLoggerFactory [,] - Using SLF4J as the default logging framework
-2025-09-30 18:18:48.843 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Starting ProtocolHandler ["http-nio-8080"]
-2025-09-30 18:18:48.866 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - Started SimpleMockingApiApplication in 2.28 seconds (process running for 2.616)
-2025-09-30 18:18:49.128 INFO  [RMI TCP Connection(4)-127.0.0.1] o.a.c.c.C.[.[localhost].[/] [,] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-09-30 18:19:32.921 INFO  [http-nio-8080-exec-1] c.c.s.c.UserController [68dbbcc480c92e3ae6e01ad6fa951649,e6e01ad6fa951649] - Fetching all users
-2025-09-30 18:19:32.922 INFO  [http-nio-8080-exec-1] c.c.s.c.UserController [68dbbcc480c92e3ae6e01ad6fa951649,e6e01ad6fa951649] - Retrieved 5 users
-2025-09-30 18:19:40.740 INFO  [http-nio-8080-exec-3] c.c.s.c.UserController [68dbbccc747283a3882122106855f777,882122106855f777] - Deleting user with ID: 4
-2025-09-30 18:19:40.749 INFO  [http-nio-8080-exec-3] c.c.s.c.UserController [68dbbccc747283a3882122106855f777,882122106855f777] - User with ID 4 deleted
-2025-09-30 18:19:40.774 INFO  [http-nio-8080-exec-4] c.c.s.c.UserController [68dbbccc9c3ebcd596689b772b9cb9a6,96689b772b9cb9a6] - Fetching all users
-2025-09-30 18:19:40.775 INFO  [http-nio-8080-exec-4] c.c.s.c.UserController [68dbbccc9c3ebcd596689b772b9cb9a6,96689b772b9cb9a6] - Retrieved 4 users
-2025-09-30 18:19:42.773 INFO  [http-nio-8080-exec-5] c.c.s.c.UserController [68dbbccec1fc179bde686cbcb760eebe,de686cbcb760eebe] - Fetching all users
-2025-09-30 18:19:42.774 INFO  [http-nio-8080-exec-5] c.c.s.c.UserController [68dbbccec1fc179bde686cbcb760eebe,de686cbcb760eebe] - Retrieved 4 users
+2025-10-08 19:05:44.739 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - Starting SimpleMockingApiApplication using Java 17.0.16 with PID 7639 (/home/raksmey/Programmings/devops/kubernetes-with-teach-bruno/simple_mocking_api/build/classes/java/main started by raksmey in /home/raksmey/Programmings/devops/kubernetes-with-teach-bruno)
+2025-10-08 19:05:44.755 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - The following 1 profile is active: "dev"
+2025-10-08 19:05:46.813 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Initializing ProtocolHandler ["http-nio-8080"]
+2025-10-08 19:05:46.816 INFO  [main] o.a.c.core.StandardService [,] - Starting service [Tomcat]
+2025-10-08 19:05:46.817 INFO  [main] o.a.c.core.StandardEngine [,] - Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-08 19:05:46.893 INFO  [main] o.a.c.c.C.[.[localhost].[/] [,] - Initializing Spring embedded WebApplicationContext
+2025-10-08 19:05:46.951 DEBUG [main] i.m.c.u.i.l.InternalLoggerFactory [,] - Using SLF4J as the default logging framework
+2025-10-08 19:05:48.180 INFO  [main] o.a.c.http11.Http11NioProtocol [,] - Starting ProtocolHandler ["http-nio-8080"]
+2025-10-08 19:05:48.228 INFO  [main] c.c.s.SimpleMockingApiApplication [,] - Started SimpleMockingApiApplication in 4.819 seconds (process running for 5.529)
+2025-10-08 19:05:48.761 INFO  [RMI TCP Connection(2)-192.168.100.9] o.a.c.c.C.[.[localhost].[/] [,] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-08 19:06:23.601 INFO  [http-nio-8080-exec-1] c.c.s.c.UserController [68e653bf2cf9bd32eb76e14d15607f15,eb76e14d15607f15] - Fetching all users
+2025-10-08 19:06:23.601 INFO  [http-nio-8080-exec-1] c.c.s.c.UserController [68e653bf2cf9bd32eb76e14d15607f15,eb76e14d15607f15] - Retrieved 5 users
+2025-10-08 19:06:29.863 INFO  [http-nio-8080-exec-2] c.c.s.c.UserController [68e653c5791587d2253a592cb3895f01,253a592cb3895f01] - Fetching all users
+2025-10-08 19:06:29.865 INFO  [http-nio-8080-exec-2] c.c.s.c.UserController [68e653c5791587d2253a592cb3895f01,253a592cb3895f01] - Retrieved 5 users
+2025-10-08 19:06:41.319 INFO  [http-nio-8080-exec-3] c.c.s.c.UserController [68e653d1f5c710ff81008a311b844da8,81008a311b844da8] - Fetching all users
+2025-10-08 19:06:41.320 INFO  [http-nio-8080-exec-3] c.c.s.c.UserController [68e653d1f5c710ff81008a311b844da8,81008a311b844da8] - Retrieved 5 users
+2025-10-08 19:06:52.068 INFO  [http-nio-8080-exec-5] c.c.s.c.UserController [68e653dc03ed6c07ce58f0dea5836e62,ce58f0dea5836e62] - Creating new user: erterytert
+2025-10-08 19:06:52.069 INFO  [http-nio-8080-exec-5] c.c.s.c.UserController [68e653dc03ed6c07ce58f0dea5836e62,ce58f0dea5836e62] - User created with ID: 6
+2025-10-08 19:06:52.098 INFO  [http-nio-8080-exec-6] c.c.s.c.UserController [68e653dcca24268170e390762675a54d,70e390762675a54d] - Fetching all users
+2025-10-08 19:06:52.099 INFO  [http-nio-8080-exec-6] c.c.s.c.UserController [68e653dcca24268170e390762675a54d,70e390762675a54d] - Retrieved 6 users
+2025-10-08 19:06:59.004 INFO  [http-nio-8080-exec-9] c.c.s.c.UserController [68e653e3c95c2805efa6c52ef3ae5b73,efa6c52ef3ae5b73] - Fetching all users
+2025-10-08 19:06:59.005 INFO  [http-nio-8080-exec-9] c.c.s.c.UserController [68e653e3c95c2805efa6c52ef3ae5b73,efa6c52ef3ae5b73] - Retrieved 16 users
+2025-10-08 19:07:21.866 INFO  [http-nio-8080-exec-10] c.c.s.c.UserController [68e653f9102b6d8e5aa84f84be12ac34,5aa84f84be12ac34] - Fetching all users
+2025-10-08 19:07:21.867 INFO  [http-nio-8080-exec-10] c.c.s.c.UserController [68e653f9102b6d8e5aa84f84be12ac34,5aa84f84be12ac34] - Retrieved 16 users
+2025-10-08 19:07:22.122 INFO  [http-nio-8080-exec-1] c.c.s.c.UserController [68e653fa521a97f1720f8b128082d622,720f8b128082d622] - Fetching all users
+2025-10-08 19:07:22.123 INFO  [http-nio-8080-exec-1] c.c.s.c.UserController [68e653fa521a97f1720f8b128082d622,720f8b128082d622] - Retrieved 16 users
+2025-10-08 19:07:22.313 INFO  [http-nio-8080-exec-2] c.c.s.c.UserController [68e653fac3dc2ad4e71de9521175f9f6,e71de9521175f9f6] - Fetching all users
+2025-10-08 19:07:22.313 INFO  [http-nio-8080-exec-2] c.c.s.c.UserController [68e653fac3dc2ad4e71de9521175f9f6,e71de9521175f9f6] - Retrieved 16 users
+2025-10-08 19:07:22.482 INFO  [http-nio-8080-exec-3] c.c.s.c.UserController [68e653fac19d908e2a8312a133ab4a21,2a8312a133ab4a21] - Fetching all users
+2025-10-08 19:07:22.483 INFO  [http-nio-8080-exec-3] c.c.s.c.UserController [68e653fac19d908e2a8312a133ab4a21,2a8312a133ab4a21] - Retrieved 16 users
